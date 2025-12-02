@@ -1,7 +1,7 @@
 /* 
     ---------------------------------------------------------------
     Add your name to this file below:
-    NAME: 
+    NAME: Nate Schlenker
     ---------------------------------------------------------------
 */
 
@@ -23,14 +23,15 @@
     --dk-gray: #222;
 
     /* Font Stacks */
-    /* add the two font stacks here */
+    --heading-fonts: "Seymour One", sans-serif;
+    --body-fonts: "Lato", Arial, sans-serif;
 }
 
 body{
-	/* set the font family to Lato, Arial, sans-serif (--body-fonts) */
-	/* Set the line height to 1.5 */
-	/* set the font size to 1.1rem	*/
-	/* set the font color to #222 (--dk-gray) */
+	font-family: var(--body-fonts);
+	line-height: 1.5;
+	font-size: 1.1rem;
+	color: var(--dk-gray);
 	margin: 0;
 	padding: 0;
 }
@@ -43,47 +44,58 @@ header{
 }
 
 h1, h2, h3{
-	/* center align the text */
-	/* use a web font here (instructions on page) */
-	/* make the heading text all small caps style */
+	text-align: center;
+	font-family: var(--heading-fonts);
+	font-variant: small-caps;
+	letter-spacing: 0.06em;   /* screenshot match */
+	margin-top: 1rem;          /* screenshot match */
 }
 
+/* exact sizing from screenshot */
+h1 { font-size: 2.4rem; }      /* large title */
+h2 { font-size: 1.7rem; }      /* major section */
+h3 { font-size: 1.35rem; }     /* subsection */
+
 h2{
-	margin: 0;
-	padding: 4px;
+	margin-bottom: 0.5rem;
+	padding-bottom: 4px;
 	text-decoration: dotted underline var(--teal) 4px;
 }
 
 h3{
-	margin: 0;
-	padding: 4px;
-	/* add an underline like the one on the h2s to the h3s, but make it solid and mint color */
+	margin-bottom: 0.5rem;
+	padding-bottom: 4px;
+	text-decoration: solid underline var(--mint) 4px;
 }
 
+/* spacing shown under nav buttons */
 nav{
 	margin: 0 auto;
-	padding: 0.5rem 0;
+	padding: 1.5rem 0;   /* extra space matches screenshot */
 }
 
 nav ul{
 	list-style-type: none;
 	padding-left: 0;
+	margin: 0;
 }
 
 nav a{
-	/* make these display as block level elements */
-	margin: 1rem auto;
-	padding: 1rem;
+	display: block;
+	margin: 0.5rem auto;
+	padding: 1rem 2rem;
 	background-color: var(--tiffany);
-	/* set the font color to #222 (--dk-gray) */
-	/* center align the text */
-	/* remove the underline */
-	/* make the font's size 1.2rem */
-	/* make the font bolder (600) */
+	color: var(--dk-gray);
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.1rem;
+	font-weight: 600;
+	border-radius: 4px;
+	width: 180px;          /* screenshot button width */
 }
 
 nav a:hover{
-    color: var(--dk-gray);
+	color: var(--dk-gray);
 	background-color: var(--teal);
 }
 
@@ -92,20 +104,23 @@ main{
 }
 
 section{
-	padding: 1rem;
+	padding: 1.5rem 1rem;
 }
 
 #fonts, #text{
 	border-bottom: 4px solid var(--plum);
+	margin-bottom: 2rem;
 }
 
+/* exact paragraph look */
 p{
-	/* set a max-width of 55 characters */
-	/* add an indent on the first line of 2rem */
-	/* center those paragraphs (not the text) on the page */
-	padding: 0.5rem;
+	max-width: 55ch;
+	text-indent: 2rem;
+	margin: 1rem auto;
+	padding: 0.5rem 0;
 }
 
+/* link colors correct */
 a{
     color: var(--plum);
 }
@@ -114,19 +129,26 @@ a:hover{
     color: var(--lime);
 }
 
+/* list width and centering */
 dl, ol, main ul{
-	/* limit the width of these lists to 55 characters */
+	max-width: 55ch;
 	margin: 1rem auto;
+	padding-left: 0;
 }
 
+/* spacing between dt groups */
 dt{
-	/* make this font display in bold weight */
+	font-weight: bold;
+	margin-top: 1rem;
 }
 
 dt::before{
 	color: var(--amethyst);
 	content: "\2605";
-	padding-right: 4px;
+	padding-right: 6px;
+	font-size: 1.2rem;
+	position: relative;
+	top: 2px;
 }
 
 footer{
@@ -135,14 +157,11 @@ footer{
 	color: var(--white);
 	text-align: center;
 	border-top: 8px solid var(--teal);
+	font-size: 0.9rem;
 }
 
 
-/* 
-    THIS CODE IS A MEDIA QUERY, USED TO ADD STYLES BASED ON HOW WIDE THE SCREEN IS. IT IS PART OF WHAT IS MAKING THE SITE RESPONSIVE
-
-    LEARN MORE ABOUT RESPONSIVE DEVELOPMENT IN GIT414
-*/
+/* Responsive Navigation */
 @media screen and (min-width: 450px){
 	nav{
 		width: fit-content;
@@ -151,6 +170,6 @@ footer{
 	nav ul{
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 0.5rem;
+		gap: 0.75rem;   /* screenshot spacing */
 	}
 }
